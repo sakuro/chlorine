@@ -15,7 +15,7 @@ else
   local amt = util.get_amount("advanced-circuit")
   util.add_ingredient("advanced-circuit", "pcb", amt)
   util.remove_ingredient("advanced-circuit", "plastic-bar")
-  util.set_ingredient("advanced-circuit", "copper-cable", amt*2)
+  util.set_ingredient("advanced-circuit", "copper-cable", amt)
 end
 local amt = util.get_amount("advanced-circuit")
 util.set_recipe_time("advanced-circuit", amt*2) -- more steps, so speed up final step
@@ -45,8 +45,10 @@ if not mods.Krastorio2 then -- consider this handled in enrichment
   util.set_main_product("molten-titanium", "molten-titanium")
 end
 util.add_ingredient("se-steel-ingot", "salt", 2)
-util.add_ingredient("se-iridium-powder", "chlorine", 20)
-util.add_product("se-iridium-powder", {type="fluid", name="chlorine", amount=19, catalyst_amount=19})
+if not mods.Krastorio2 then
+  util.add_ingredient("se-iridium-powder", "chlorine", 20)
+  util.add_product("se-iridium-powder", {type="fluid", name="chlorine", amount=19, catalyst_amount=19})
+end
 
 util.replace_some_ingredient("se-vitamelange-bloom", "sand", 10, "salt", 1)
 util.add_ingredient("se-nutrient-gel", "salt", 1)
@@ -58,5 +60,7 @@ util.add_ingredient("se-bio-sludge-decontamination", "chlorine", 1)
 util.add_ingredient("se-bio-electrics-data", "salt", 1)
 
 util.add_ingredient("se-holmium-chloride", "hydrogen-chloride", 2)
+util.replace_some_ingredient("se-space-coolant", "copper-plate", 1, "salt", 1)
+util.replace_some_ingredient("se-space-coolant-cryonite", "copper-plate", 1, "salt", 1)
 
 util.add_ingredient("shiveros_advanced_uranium_reprocessing", "salt", 1)
